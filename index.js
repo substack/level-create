@@ -16,7 +16,7 @@ module.exports = function (db, key, value, cb) {
             return cb(error('EXISTS', 'key already exists'));
         }
         
-        db.put(key, userdata, function (err) {
+        db.put(key, value, function (err) {
             unlock();
             cb(err);
         });
