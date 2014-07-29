@@ -1,0 +1,35 @@
+{
+  "name": "level-create",
+  "version": "1.0.0",
+  "description": "insert a key if and only if it doesn't already exist",
+  "main": "index.js",
+  "dependencies": {
+    "level-lock": "~1.0.1"
+  },
+  "devDependencies": {
+    "tape": "^2.13.2",
+    "level-test": "~1.6.3"
+  },
+  "scripts": {
+    "test": "tape test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/substack/level-create.git"
+  },
+  "homepage": "https://github.com/substack/level-create",
+  "keywords": [
+    "level",
+    "create",
+    "insert",
+    "put",
+    "unique",
+    "key"
+  ],
+  "author": {
+    "name": "James Halliday",
+    "email": "mail@substack.net",
+    "url": "http://substack.net"
+  },
+  "license": "MIT"
+}
