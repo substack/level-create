@@ -1,4 +1,4 @@
-# level-insert-unique
+# level-create
 
 insert a key if and only if it doesn't already exist
 
@@ -7,12 +7,12 @@ insert a key if and only if it doesn't already exist
 ``` js
 var level = require('level');
 var db = level('/tmp/users.db', { valueEncoding: 'json' });
-var insert = require('level-insert-unique');
+var create = require('level-create');
 
 var key = 'users!' + process.argv[2];
 var value = { bio: process.argv[3] };
 
-insert(db, key, value, function (err) {
+create(db, key, value, function (err) {
     if (err) {
         console.error(err);
         process.exit(1)
@@ -36,10 +36,10 @@ that prevents other updates from succeeding.
 # methods
 
 ``` js
-var insert = require('level-insert-unique')
+var create = require('level-create')
 ```
 
-## insert(db, key, value, cb)
+## create(db, key, value, cb)
 
 Put `value` at `key` into the leveldb `db` if and only if the key doesn't
 already exist in the database.
@@ -58,7 +58,7 @@ automatically encoded into the right format for setting locks.
 With [npm](https://npmjs.org) do:
 
 ```
-npm install level-insert-unique
+npm install level-create
 ```
 
 # license
