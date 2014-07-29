@@ -2,6 +2,8 @@
 
 insert a key if and only if it doesn't already exist
 
+[![build status](https://secure.travis-ci.org/substack/level-create.png)](http://travis-ci.org/substack/level-create)
+
 # example
 
 ``` js
