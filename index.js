@@ -9,16 +9,16 @@ module.exports = function (db, key, value, cb) {
     db.get(key, function (err, res) {
         if (err && err.type !== 'NotFoundError') {
             unlock();
-            return cb(err);
+            return cb && cb(err);
         }
         if (res) {
             unlock();
-            return cb(error('EXISTS', 'key already exists'));
+            return cb && cb(error('EXISTS', 'key already exists'));
         }
         
         db.put(key, value, function (err) {
             unlock();
-            cb(err);
+            if (cb) cb(err);
         });
     });
 };
