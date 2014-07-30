@@ -1,6 +1,6 @@
 {
   "name": "level-create",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "insert a key if and only if it doesn't already exist",
   "main": "index.js",
   "dependencies": {
