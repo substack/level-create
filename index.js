@@ -1,12 +1,17 @@
 var lock = require('level-lock');
 
-module.exports = function (db, key, value, cb) {
+module.exports = function (db, key, value, options, cb) {
+    if (typeof options === 'function') {
+        cb = options;
+        options = null;
+    }
+
     var unlock = lock(db, key, 'w');
     if (!unlock) {
         return nextErr(cb, 'LOCKED', 'key is write-locked');
     }
-    
-    db.get(key, function (err, res) {
+
+    db.get(key, options, function (err, res) {
         if (err && err.type !== 'NotFoundError') {
             unlock();
             return cb && cb(err);
@@ -15,8 +20,8 @@ module.exports = function (db, key, value, cb) {
             unlock();
             return cb && cb(error('EXISTS', 'key already exists'));
         }
-        
-        db.put(key, value, function (err) {
+
+        db.put(key, value, options, function (err) {
             unlock();
             if (cb) cb(err);
         });
